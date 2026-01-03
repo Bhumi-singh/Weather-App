@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+input {
+    padding: 8px;
+    width: 70%;
+}
+
+button {
+    padding: 8px;
+    cursor: pointer;
+}
+
+img {
+    width: 80px;
+}
+
+#error {
+    color: red;
+}
