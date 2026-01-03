@@ -29,11 +29,12 @@ A simple and responsive weather application built using **HTML, CSS, and JavaScr
 
 ## 📂 Project Structure
 
+```text
 weather-app/
-│
-├── index.html      # Main HTML file
-├── style.css       # Styling and responsive design
-├── script.js       # JavaScript logic & API calls
-├── config.js       # API key configuration
-└── README.md       # Project documentation
+│── index.html      # Main HTML file
+│── style.css       # Styling and responsive design
+│── script.js       # JavaScript logic & API calls
+│── config.js       # OpenWeather API key configuration
+│── README.md       # Project documentation
+
 
