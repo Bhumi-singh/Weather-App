@@ -35,8 +35,10 @@ function updateUI(data) {
     document.getElementById("desc").innerText = data.weather[0].description;
     document.getElementById("humidity").innerText = `💧 Humidity: ${data.main.humidity}%`;
     document.getElementById("wind").innerText = `🌬️ Wind: ${data.wind.speed} m/s`;
-    document.getElementById("icon").src =
-        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    const icon = document.getElementById("icon");
+
+    icon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    icon.style.display = "block";
 }
 
 function clearResult() {
