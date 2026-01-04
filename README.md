@@ -5,6 +5,15 @@
 ![GitHub](https://img.shields.io/badge/GitHub-Version_Control-black?logo=github)
 # 🌦️ Weather App
 
+## 📌 About the Project
+
+The Weather App is a responsive web application that allows users to search real-time weather
+information for any city worldwide. It fetches live data from the OpenWeather API and displays
+key weather parameters such as temperature, weather condition, humidity, and wind speed.
+
+This project demonstrates API integration, asynchronous JavaScript (fetch/async-await),
+DOM manipulation, and responsive UI design.
+
 A simple and responsive weather application built using **HTML, CSS, and JavaScript** that fetches real-time weather data using the **OpenWeather API**.
 
 ---
