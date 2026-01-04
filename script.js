@@ -47,5 +47,5 @@ function clearResult() {
     document.getElementById("desc").innerText = "";
     document.getElementById("humidity").innerText = "";
     document.getElementById("wind").innerText = "";
-    document.getElementById("icon").src = "";
+    document.getElementById("icon").style.display = "none"; 
 }
