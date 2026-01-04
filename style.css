@@ -33,3 +33,9 @@ img {
 #error {
     color: red;
 }
+
+#loading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}

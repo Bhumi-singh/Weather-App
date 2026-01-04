@@ -1,33 +1,49 @@
 function getWeather() {
-    const city = document.getElementById("city").value.trim();
+    const city = document.getElementById("city").value;
     const error = document.getElementById("error");
-
-    error.innerText = "";
 
     if (!city) {
         error.innerText = "Please enter a city name";
         return;
     }
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    // UI states
+    loading.style.display = "block";
+    error.innerText = "";
+    clearResult();
 
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("City not found");
-            }
-            return response.json();
-        })
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+        .then(res => res.json())
         .then(data => {
-            document.getElementById("cityName").innerText = data.name;
-            document.getElementById("temp").innerText =
-                `Temperature: ${data.main.temp} °C`;
-            document.getElementById("desc").innerText =
-                `Weather: ${data.weather[0].description}`;
-            document.getElementById("humidity").innerText =
-                `Humidity: ${data.main.humidity}%`;
+            loading.style.display = "none";
+
+            if (data.cod !== 200) {
+                error.innerText = data.message;
+                return;
+            }
+
+            updateUI(data);
         })
-        .catch(err => {
-            error.innerText = err.message;
+        .catch(() => {
+            loading.style.display = "none";
+            error.innerText = "Failed to fetch weather data";
         });
+}
+function updateUI(data) {
+    document.getElementById("cityName").innerText = data.name;
+    document.getElementById("temp").innerText = `🌡️ ${data.main.temp} °C`;
+    document.getElementById("desc").innerText = data.weather[0].description;
+    document.getElementById("humidity").innerText = `💧 Humidity: ${data.main.humidity}%`;
+    document.getElementById("wind").innerText = `🌬️ Wind: ${data.wind.speed} m/s`;
+    document.getElementById("icon").src =
+        `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+}
+
+function clearResult() {
+    document.getElementById("cityName").innerText = "";
+    document.getElementById("temp").innerText = "";
+    document.getElementById("desc").innerText = "";
+    document.getElementById("humidity").innerText = "";
+    document.getElementById("wind").innerText = "";
+    document.getElementById("icon").src = "";
 }
